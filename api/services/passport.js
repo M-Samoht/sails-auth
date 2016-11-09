@@ -94,6 +94,11 @@ if (sails.services.passport) {
     // If the profile object contains a username, add it to the user.
     if (_.has(profile, 'username')) {
       user.username = profile.username;
+    }    
+    
+    // Steam support
+    if (_.has(profile, 'displayName')) {
+      user.username = profile.displayName;
     }
 
     // If neither an email or a username was available in the profile, we don't
